@@ -1,0 +1,59 @@
+/*
+ * Mandatory:
+ *
+ * vars.prometheus.replicas
+ *
+ * Optional:
+ * 
+ * vars.prometheus.limits.cpu
+ * vars.prometheus.limits.memory
+ * vars.prometheus.requests.cpu
+ * vars.prometheus.requests.memory
+ * vars.prometheus.affinity.key
+ * vars.prometheus.affinity.name
+ * vars.prometheus.affinity.required
+ * vars.prometheus.allowOnMaster
+ * vars.prometheus.tolerations[].key
+ * vars.prometheus.tolerations[].effect
+ * vars.prometheus.tolerations[].value
+ */
+
+/*
+ *
+ */
+prometheus-prometheus-yaml(parent, vars) ::= <<
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  labels:
+    prometheus: k8s
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+    kubernetes.io/name: "prometheus-operator"
+  name: k8s
+  namespace: monitoring
+spec:
+  alerting:
+    alertmanagers:
+    - name: alertmanager-main
+      namespace: monitoring
+      port: web
+  baseImage: quay.io/prometheus/prometheus
+  nodeSelector:
+    beta.kubernetes.io/os: linux
+  replicas: <vars.prometheus.replicas>
+  resources:
+    requests:
+      memory: <vars.prometheus.requests.memory>
+  ruleSelector:
+    matchLabels:
+      prometheus: k8s
+      role: alert-rules
+  serviceAccountName: prometheus-k8s
+  serviceMonitorSelector:
+    matchExpressions:
+    - key: k8s-app
+      operator: Exists
+  version: v2.2.1
+
+>>

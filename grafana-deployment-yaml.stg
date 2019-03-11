@@ -135,8 +135,8 @@ spec:
       - configMap:
           name: grafana-dashboard-statefulset
         name: grafana-dashboard-statefulset
-    <tolerationMasterGroup(parent, vars, vars.grafana.allowOnMaster)>
-    <tolerationsGroup(parent, vars, vars.grafana.tolerations, vars.grafana.allowOnMaster)>
-    <affinitiesGroup(parent, vars, vars.grafana.affinity)>
+      <tolerationMasterGroup(parent, vars, vars.grafana.allowOnMaster)>
+      <tolerationsGroup(parent, vars, vars.grafana.tolerations, vars.grafana.allowOnMaster)>
+      <affinitiesGroup(parent, vars, vars.grafana.affinity)>
 
 >>

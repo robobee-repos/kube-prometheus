@@ -109,8 +109,8 @@ spec:
       - hostPath:
           path: /
         name: root
-    <tolerationMasterGroup(parent, vars, vars.nodeExporter.allowOnMaster)>
-    <tolerationsGroup(parent, vars, vars.nodeExporter.tolerations, vars.nodeExporter.allowOnMaster)>
-    <affinitiesGroup(parent, vars, vars.nodeExporter.affinity)>
+      <tolerationMasterGroup(parent, vars, vars.nodeExporter.allowOnMaster)>
+      <tolerationsGroup(parent, vars, vars.nodeExporter.tolerations, vars.nodeExporter.allowOnMaster)>
+      <affinitiesGroup(parent, vars, vars.nodeExporter.affinity)>
 
 >>

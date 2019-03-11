@@ -129,8 +129,8 @@ spec:
         runAsNonRoot: true
         runAsUser: 65534
       serviceAccountName: kube-state-metrics
-<tolerationMasterGroup(parent, vars, vars.kubeStateMetrics.allowOnMaster)>
-<tolerationsGroup(parent, vars, vars.kubeStateMetrics.tolerations, vars.kubeStateMetrics.allowOnMaster)>
-<affinitiesGroup(parent, vars, vars.kubeStateMetrics.affinity)>
+    <tolerationMasterGroup(parent, vars, vars.kubeStateMetrics.allowOnMaster)>
+    <tolerationsGroup(parent, vars, vars.kubeStateMetrics.tolerations, vars.kubeStateMetrics.allowOnMaster)>
+    <affinitiesGroup(parent, vars, vars.kubeStateMetrics.affinity)>
 
 >>

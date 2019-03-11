@@ -63,8 +63,8 @@ spec:
         runAsNonRoot: true
         runAsUser: 65534
       serviceAccountName: prometheus-operator
-<tolerationMasterGroup(parent, vars, vars.prometheusOperator.allowOnMaster)>
-<tolerationsGroup(parent, vars, vars.prometheusOperator.tolerations, vars.prometheusOperator.allowOnMaster)>
-<affinitiesGroup(parent, vars, vars.prometheusOperator.affinity)>
+    <tolerationMasterGroup(parent, vars, vars.prometheusOperator.allowOnMaster)>
+    <tolerationsGroup(parent, vars, vars.prometheusOperator.tolerations, vars.prometheusOperator.allowOnMaster)>
+    <affinitiesGroup(parent, vars, vars.prometheusOperator.affinity)>
 
 >>

@@ -59,8 +59,8 @@ spec:
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
   version: <vars.prometheus.image.version>
-<tolerationMasterGroup(parent, vars, vars.prometheus.allowOnMaster)>
-<tolerationsGroup(parent, vars, vars.prometheus.tolerations, vars.prometheus.allowOnMaster)>
-<affinitiesGroup(parent, vars, vars.prometheus.affinity)>
+  <tolerationMasterGroup(parent, vars, vars.prometheus.allowOnMaster)>
+  <tolerationsGroup(parent, vars, vars.prometheus.tolerations, vars.prometheus.allowOnMaster)>
+  <affinitiesGroup(parent, vars, vars.prometheus.affinity)>
 
 >>

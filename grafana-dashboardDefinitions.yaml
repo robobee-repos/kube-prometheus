@@ -916,6 +916,8 @@ items:
   metadata:
     name: grafana-dashboard-k8s-cluster-rsrc-use
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     k8s-node-rsrc-use.json: |-
@@ -1859,6 +1861,8 @@ items:
   metadata:
     name: grafana-dashboard-k8s-node-rsrc-use
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     k8s-resources-cluster.json: |-
@@ -3187,6 +3191,8 @@ items:
   metadata:
     name: grafana-dashboard-k8s-resources-cluster
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     k8s-resources-namespace.json: |-
@@ -4026,6 +4032,8 @@ items:
   metadata:
     name: grafana-dashboard-k8s-resources-namespace
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     k8s-resources-pod.json: |-
@@ -4892,6 +4900,8 @@ items:
   metadata:
     name: grafana-dashboard-k8s-resources-pod
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     nodes.json: |-
@@ -6210,6 +6220,8 @@ items:
   metadata:
     name: grafana-dashboard-nodes
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     persistentvolumesusage.json: |-
@@ -6559,6 +6571,8 @@ items:
   metadata:
     name: grafana-dashboard-persistentvolumesusage
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     pods.json: |-
@@ -7049,6 +7063,8 @@ items:
   metadata:
     name: grafana-dashboard-pods
     namespace: monitoring
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
 - apiVersion: v1
   data:
     statefulset.json: |-
@@ -7912,7 +7928,5 @@ items:
   metadata:
     name: grafana-dashboard-statefulset
     namespace: monitoring
-kind: ConfigMapList
-metadata:
-  labels:
-    addonmanager.kubernetes.io/mode: Reconcile
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile

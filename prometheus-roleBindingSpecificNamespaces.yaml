@@ -4,8 +4,8 @@ kind: RoleBinding
 metadata:
   name: prometheus-k8s
   namespace: default
-labels:
-  addonmanager.kubernetes.io/mode: Reconcile
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -20,8 +20,8 @@ kind: RoleBinding
 metadata:
   name: prometheus-k8s
   namespace: kube-system
-labels:
-  addonmanager.kubernetes.io/mode: Reconcile
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -36,8 +36,8 @@ kind: RoleBinding
 metadata:
   name: prometheus-k8s
   namespace: monitoring
-labels:
-  addonmanager.kubernetes.io/mode: Reconcile
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

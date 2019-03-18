@@ -4,7 +4,6 @@ metadata:
   labels:
     prometheus: k8s
     role: alert-rules
-    addonmanager.kubernetes.io/mode: Reconcile
   name: prometheus-k8s-rules
   namespace: monitoring
 spec:

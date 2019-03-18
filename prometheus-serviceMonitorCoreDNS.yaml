@@ -3,7 +3,6 @@ kind: ServiceMonitor
 metadata:
   labels:
     k8s-app: coredns
-    addonmanager.kubernetes.io/mode: Reconcile
   name: coredns
   namespace: monitoring
 spec:

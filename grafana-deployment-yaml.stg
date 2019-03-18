@@ -32,7 +32,6 @@ kind: Deployment
 metadata:
   labels:
     app: grafana
-    addonmanager.kubernetes.io/mode: Reconcile
   name: grafana
   namespace: monitoring
 spec:

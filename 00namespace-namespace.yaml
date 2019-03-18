@@ -2,5 +2,3 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: monitoring
-  labels:
-    addonmanager.kubernetes.io/mode: Reconcile

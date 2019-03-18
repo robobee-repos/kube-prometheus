@@ -7913,6 +7913,3 @@ items:
     name: grafana-dashboard-statefulset
     namespace: monitoring
 kind: ConfigMapList
-metadata:
-  labels:
-    addonmanager.kubernetes.io/mode: Reconcile

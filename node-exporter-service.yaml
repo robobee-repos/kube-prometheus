@@ -3,7 +3,6 @@ kind: Service
 metadata:
   labels:
     k8s-app: node-exporter
-    addonmanager.kubernetes.io/mode: Reconcile
   name: node-exporter
   namespace: monitoring
 spec:

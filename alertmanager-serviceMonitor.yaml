@@ -3,7 +3,6 @@ kind: ServiceMonitor
 metadata:
   labels:
     k8s-app: alertmanager
-    addonmanager.kubernetes.io/mode: Reconcile
   name: alertmanager
   namespace: monitoring
 spec:

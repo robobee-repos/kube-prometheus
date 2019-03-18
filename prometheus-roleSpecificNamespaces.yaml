@@ -49,6 +49,3 @@ items:
     - list
     - watch
 kind: RoleList
-metadata:
-  labels:
-    addonmanager.kubernetes.io/mode: Reconcile

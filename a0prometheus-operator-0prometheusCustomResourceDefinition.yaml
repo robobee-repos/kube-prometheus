@@ -3,8 +3,6 @@ kind: CustomResourceDefinition
 metadata:
   creationTimestamp: null
   name: prometheuses.monitoring.coreos.com
-  labels:
-    addonmanager.kubernetes.io/mode: Reconcile
 spec:
   group: monitoring.coreos.com
   names:

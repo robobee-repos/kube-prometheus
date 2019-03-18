@@ -5,6 +5,4 @@ kind: Secret
 metadata:
   name: grafana-datasources
   namespace: monitoring
-  labels:
-    addonmanager.kubernetes.io/mode: Reconcile
 type: Opaque

@@ -1,6 +1,8 @@
 /*
  * Mandatory:
  *
+ * vars.prometheus.image.name
+ * vars.prometheus.image.version
  * vars.prometheus.replicas
  *
  * Optional:
@@ -18,6 +20,10 @@
  * vars.prometheus.tolerations[].value
  */
 
+import "robobeerun-templates/_affinities.stg"
+import "robobeerun-templates/_resources.stg"
+import "robobeerun-templates/_tolerations.stg"
+
 /*
  *
  */
@@ -27,9 +33,6 @@ kind: Prometheus
 metadata:
   labels:
     prometheus: k8s
-    kubernetes.io/cluster-service: "true"
-    addonmanager.kubernetes.io/mode: Reconcile
-    kubernetes.io/name: "prometheus-operator"
   name: k8s
   namespace: monitoring
 spec:
@@ -38,22 +41,25 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
-  baseImage: quay.io/prometheus/prometheus
+  baseImage: <vars.prometheus.image.name>
   nodeSelector:
     beta.kubernetes.io/os: linux
   replicas: <vars.prometheus.replicas>
-  resources:
-    requests:
-      memory: <vars.prometheus.requests.memory>
+  <resourcesGroup(parent, vars, vars.prometheus.limits, vars.prometheus.requests)>
   ruleSelector:
     matchLabels:
       prometheus: k8s
       role: alert-rules
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
   serviceAccountName: prometheus-k8s
-  serviceMonitorSelector:
-    matchExpressions:
-    - key: k8s-app
-      operator: Exists
-  version: v2.2.1
+  serviceMonitorNamespaceSelector: {}
+  serviceMonitorSelector: {}
+  version: <vars.prometheus.image.version>
+  <tolerationMasterGroup(parent, vars, vars.prometheus.allowOnMaster)>
+  <tolerationsGroup(parent, vars, vars.prometheus.tolerations, vars.prometheus.allowOnMaster)>
+  <affinitiesGroup(parent, vars, vars.prometheus.affinity)>
 
 >>

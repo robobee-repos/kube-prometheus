@@ -1,6 +1,8 @@
 /*
  * Mandatory:
  *
+ * vars.grafana.ingress.enabled
+ *     set to true to enable the ingress.
  * vars.grafana.hosts[]
  *     the service host.
  * vars.grafana.port
@@ -21,6 +23,7 @@ import "robobeerun-templates/_ingress_config.stg"
  * 
  */
 xx-grafana-ingress-yaml(parent, vars) ::= <<
+if(vars.grafana.ingress.enabled)>
 ---
 
 apiVersion: extensions/v1beta1
@@ -51,4 +54,5 @@ spec:
 
 ---
 
+<endif>
 >>

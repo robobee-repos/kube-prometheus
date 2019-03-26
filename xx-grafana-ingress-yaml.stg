@@ -23,7 +23,7 @@ import "robobeerun-templates/_ingress_config.stg"
  * 
  */
 xx-grafana-ingress-yaml(parent, vars) ::= <<
-if(vars.grafana.ingress.enabled)>
+<if(vars.grafana.ingress.enabled)>
 ---
 
 apiVersion: extensions/v1beta1

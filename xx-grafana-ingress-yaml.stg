@@ -1,0 +1,54 @@
+/*
+ * Mandatory:
+ *
+ * vars.grafana.hosts[]
+ *     the service host.
+ * vars.grafana.port
+ *     the service http port.
+ * vars.grafana.issuer
+ *     the certificate issuer.
+ *
+ * Optional:
+ *
+ * vars.grafana.nginx.clientMaxBodySize
+ *
+ */
+
+import "robobeerun-templates/_cert_config.stg"
+import "robobeerun-templates/_ingress_config.stg"
+
+/*
+ * 
+ */
+xx-grafana-ingress-yaml(parent, vars) ::= <<
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+  annotations:
+    <ingressDefaultAnnotations(vars.gitea.nginx)>
+spec:
+  <ingressDefaultSpec(vars.grafana, "grafana-ingress")>
+
+---
+
+<ingressService(vars.gitea, "grafana-ingress", "grafana", "monitoring")>
+
+---
+
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  <certDefaultSpec(vars.grafana, "grafana-ingress", vars.grafana.issuer)>
+
+---
+
+>>

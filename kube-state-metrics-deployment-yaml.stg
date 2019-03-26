@@ -32,7 +32,6 @@ kind: Deployment
 metadata:
   labels:
     app: kube-state-metrics
-    addonmanager.kubernetes.io/mode: Reconcile
   name: kube-state-metrics
   namespace: monitoring
 spec:

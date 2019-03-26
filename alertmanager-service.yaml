@@ -3,7 +3,6 @@ kind: Service
 metadata:
   labels:
     alertmanager: main
-    addonmanager.kubernetes.io/mode: Reconcile
   name: alertmanager-main
   namespace: monitoring
 spec:

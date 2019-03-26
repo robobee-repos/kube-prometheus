@@ -33,7 +33,6 @@ kind: Prometheus
 metadata:
   labels:
     prometheus: k8s
-    addonmanager.kubernetes.io/mode: Reconcile
   name: k8s
   namespace: monitoring
 spec:

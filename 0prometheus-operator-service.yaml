@@ -3,7 +3,6 @@ kind: Service
 metadata:
   labels:
     k8s-app: prometheus-operator
-    addonmanager.kubernetes.io/mode: Reconcile
   name: prometheus-operator
   namespace: monitoring
 spec:

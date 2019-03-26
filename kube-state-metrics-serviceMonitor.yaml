@@ -3,7 +3,6 @@ kind: ServiceMonitor
 metadata:
   labels:
     k8s-app: kube-state-metrics
-    addonmanager.kubernetes.io/mode: Reconcile
   name: kube-state-metrics
   namespace: monitoring
 spec:

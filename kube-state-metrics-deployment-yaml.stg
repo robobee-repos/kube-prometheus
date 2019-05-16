@@ -1,9 +1,4 @@
 /*
- * Mandatory:
- *
- * vars.kubeStateMetrics.image.name
- * vars.kubeStateMetrics.image.version
- *
  * Optional:
  * 
  * vars.kubeStateMetrics.limits.cpu

@@ -1,19 +1,9 @@
 /*
  * Mandatory:
  *
- * vars.grafana.ingress.enabled
- *     set to true to enable the ingress.
  * vars.grafana.hosts[]
- *     the service host.
- * vars.grafana.port
- *     the service http port.
  * vars.grafana.issuer
- *     the certificate issuer.
- *
- * Optional:
- *
- * vars.grafana.nginx.clientMaxBodySize
- *
+ * vars.nginx.clientMaxBodySize
  */
 
 import "robobeerun-templates/_cert_config.stg"
@@ -23,24 +13,23 @@ import "robobeerun-templates/_ingress_config.stg"
  * 
  */
 xx-grafana-ingress-yaml(parent, vars) ::= <<
-<if(vars.grafana.ingress.enabled)>
 ---
 
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: grafana
+  name: monitoring
   namespace: monitoring
   labels:
     app: grafana
   annotations:
-    <ingressDefaultAnnotations(vars.gitea.nginx)>
+    <ingressDefaultAnnotations(vars.nginx)>
 spec:
-  <ingressDefaultSpec(vars.grafana, "grafana-ingress")>
+  <ingressDefaultSpec("monitoring", vars.grafana.hosts)>
 
 ---
 
-<ingressService(vars.gitea, "grafana-ingress", "grafana", "monitoring")>
+<ingressService("monitoring", "grafana", "monitoring", vars.nginx)>
 
 ---
 
@@ -50,9 +39,8 @@ metadata:
   name: grafana
   namespace: monitoring
 spec:
-  <certDefaultSpec(vars.grafana, "grafana-ingress", vars.grafana.issuer)>
+  <certDefaultSpec("monitoring-tls", vars.grafana.hosts, vars.grafana.issuer)>
 
 ---
 
-<endif>
 >>

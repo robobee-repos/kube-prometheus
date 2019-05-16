@@ -31,7 +31,7 @@
  * vars.grafana.oauth.generic.tokenUrl
  * vars.grafana.oauth.generic.apiUrl
  * vars.grafana.oauth.generic.teamIds
- * vars.grafana.oauth.generic.allowedOrs
+ * vars.grafana.oauth.generic.allowedOrgs
  * vars.grafana.oauth.generic.tlsSkipVerifyInsecure
  * vars.grafana.oauth.generic.tlsClientCert
  * vars.grafana.oauth.generic.tlsClientKey
@@ -378,7 +378,7 @@ data:
     token_url = <vars.grafana.oauth.generic.tokenUrl>
     api_url = <vars.grafana.oauth.generic.apiUrl>
     team_ids = <vars.grafana.oauth.generic.teamIds>
-    allowed_organizations = <vars.grafana.oauth.generic.allowedOrs>
+    allowed_organizations = <vars.grafana.oauth.generic.allowedOrgs>
     tls_skip_verify_insecure = <vars.grafana.oauth.generic.tlsSkipVerifyInsecure>
     tls_client_cert = <vars.grafana.oauth.generic.tlsClientCert>
     tls_client_key = <vars.grafana.oauth.generic.tlsClientKey>
@@ -484,7 +484,7 @@ data:
     # Max line number of single file, default is 1000000
     ;max_lines = 1000000
 
-    # Max size shift of single file, default is 28 means 1 << 28, 256MB
+    # Max size shift of single file, default is 28 means 1 \<\< 28, 256MB
     ;max_size_shift = 28
 
     # Segment log daily, default is true

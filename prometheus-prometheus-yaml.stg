@@ -1,4 +1,8 @@
 /*
+ * Mandatory:
+ * 
+ * vars.prometheus.replicas
+ * 
  * Optional:
  * 
  * vars.prometheus.limits.cpu

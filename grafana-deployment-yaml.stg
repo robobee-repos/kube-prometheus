@@ -646,7 +646,7 @@ spec:
         <resourcesGroup(parent, vars, vars.grafana)>
         volumeMounts:
         - mountPath: /etc/grafana
-          name: grafana-storage
+          name: grafana-config
           subPath: grafana.ini
           readOnly: false
         - mountPath: /var/lib/grafana

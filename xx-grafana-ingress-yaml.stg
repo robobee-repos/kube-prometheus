@@ -3,6 +3,9 @@
  *
  * vars.grafana.hosts[]
  * vars.grafana.issuer
+ * 
+ * Optional:
+ * 
  * vars.nginx.clientMaxBodySize
  */
 

@@ -3,6 +3,7 @@
  *
  * vars.grafana.hosts[]
  * vars.grafana.issuer
+ * vars.grafana.port
  * 
  * Optional:
  * 
@@ -32,7 +33,7 @@ spec:
 
 ---
 
-<ingressService("grafana-ingress", "grafana", "monitoring", "3000")>
+<ingressService("grafana-ingress", "grafana", "monitoring", vars.grafana)>
 
 ---
 

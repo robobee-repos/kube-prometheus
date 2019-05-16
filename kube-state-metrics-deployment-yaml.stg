@@ -1,10 +1,6 @@
 /*
  * Optional:
  * 
- * vars.kubeStateMetrics.limits.cpu
- * vars.kubeStateMetrics.limits.memory
- * vars.kubeStateMetrics.requests.cpu
- * vars.kubeStateMetrics.requests.memory
  * vars.kubeStateMetrics.affinity.key
  * vars.kubeStateMetrics.affinity.name
  * vars.kubeStateMetrics.affinity.required

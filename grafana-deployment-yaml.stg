@@ -17,6 +17,9 @@
  * vars.grafana.tolerations[].key
  * vars.grafana.tolerations[].effect
  * vars.grafana.tolerations[].value
+ * 
+ * vars.grafana.storage.size
+ * vars.grafana.storage.class
  */
 
 import "robobeerun-templates/_affinities.stg"
@@ -27,6 +30,27 @@ import "robobeerun-templates/_tolerations.stg"
  *
  */
 grafana-deployment-yaml(parent, vars) ::= <<
+
+<if(vars.grafana.storage)>
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana
+  namespace: monitoring
+<if(vars.grafana.storage.class)>
+  annotations:
+    volume.beta.kubernetes.io/storage-class: <vars.grafana.storage.class>
+<endif>
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: <vars.grafana.storage.size>
+---
+<endif>
+
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
@@ -99,8 +123,13 @@ spec:
         runAsUser: 65534
       serviceAccountName: grafana
       volumes:
-      - emptyDir: {}
-        name: grafana-storage
+      - name: grafana-storage
+<if(vars.grafana.storage)>
+        persistentVolumeClaim:
+          claimName: grafana
+<else>
+        emptyDir: {}
+<endif>
       - name: grafana-datasources
         secret:
           secretName: grafana-datasources

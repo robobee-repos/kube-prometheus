@@ -33,7 +33,7 @@ spec:
 
 ---
 
-<ingressService("prometheus-ingress", "prometheus", "monitoring", vars.prometheus.port)>
+<ingressService("prometheus-ingress", "prometheus", "monitoring", vars.prometheus)>
 
 ---
 

@@ -16,6 +16,9 @@
  * vars.prometheus.tolerations[].key
  * vars.prometheus.tolerations[].effect
  * vars.prometheus.tolerations[].value
+ * 
+ * vars.prometheus.storage.size
+ * vars.prometheus.storage.class
  */
 
 import "robobeerun-templates/_affinities.stg"
@@ -56,14 +59,21 @@ spec:
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
   version: v2.7.2
+<if(vars.prometheus.storage)>
   storage:
     volumeClaimTemplate:
       metadata:
         name: prometheus
+        namespace: monitoring
+<if(vars.prometheus.storage.class)>
+        annotations:
+          volume.beta.kubernetes.io/storage-class: <vars.prometheus.storage.class>
+<endif>
       spec:
         resources:
           requests:
-            storage: 5Gi
+            storage: <vars.prometheus.storage.size>
+<endif>
   <tolerationMasterGroup(parent, vars, vars.prometheus.allowOnMaster)>
   <tolerationsGroup(parent, vars, vars.prometheus.tolerations, vars.prometheus.allowOnMaster)>
   <affinitiesGroup(parent, vars, vars.prometheus.affinity)>

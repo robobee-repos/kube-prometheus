@@ -21,28 +21,28 @@ xx-grafana-ingress-yaml(parent, vars) ::= <<
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: monitoring
+  name: grafana-ingress
   namespace: monitoring
   labels:
     app: grafana
   annotations:
     <ingressDefaultAnnotations(vars.nginx)>
 spec:
-  <ingressDefaultSpec("monitoring", vars.grafana.hosts)>
+  <ingressDefaultSpec("grafana-ingress", vars.grafana.hosts)>
 
 ---
 
-<ingressService("monitoring", "grafana", "monitoring", vars.nginx)>
+<ingressService("grafana-ingress", "grafana", "monitoring", "3000")>
 
 ---
 
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: grafana
+  name: grafana-ingress
   namespace: monitoring
 spec:
-  <certDefaultSpec("monitoring-tls", vars.grafana.hosts, vars.grafana.issuer)>
+  <certDefaultSpec("grafana-ingress-tls", vars.grafana.hosts, vars.grafana.issuer)>
 
 ---
 

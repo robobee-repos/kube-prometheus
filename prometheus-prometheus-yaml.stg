@@ -39,7 +39,7 @@ spec:
   nodeSelector:
     beta.kubernetes.io/os: linux
   replicas: <vars.prometheus.replicas>
-  <resourcesGroup(parent, vars, vars.prometheus.limits, vars.prometheus.requests)>
+  <resourcesGroup(parent, vars, vars.prometheus)>
   ruleSelector:
     matchLabels:
       prometheus: k8s

@@ -47,7 +47,7 @@ spec:
         ports:
         - containerPort: 8080
           name: http
-        <resourcesGroup(parent, vars, vars.prometheusOperator.limits, vars.prometheusOperator.requests)>
+        <resourcesGroup(parent, vars, vars.prometheusOperator)>
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true

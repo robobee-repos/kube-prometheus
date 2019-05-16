@@ -54,7 +54,7 @@ spec:
           httpGet:
             path: /api/health
             port: http
-        <resourcesGroup(parent, vars, vars.grafana.limits, vars.grafana.requests)>
+        <resourcesGroup(parent, vars, vars.grafana)>
         volumeMounts:
         - mountPath: /var/lib/grafana
           name: grafana-storage

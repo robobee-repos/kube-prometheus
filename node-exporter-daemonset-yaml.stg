@@ -1,9 +1,4 @@
 /*
- * Mandatory:
- *
- * vars.nodeExporter.image.name
- * vars.nodeExporter.image.version
- *
  * Optional:
  * 
  * vars.nodeExporter.limits.cpu
@@ -51,7 +46,7 @@ spec:
         - --path.rootfs=/host/root
         - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+)($|/)
         - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$
-        image: <vars.nodeExporter.image.name>:<vars.nodeExporter.image.version>
+        image: quay.io/prometheus/node-exporter:v0.17.0
         name: node-exporter
         <resourcesGroup(parent, vars, vars.nodeExporter.limits, vars.nodeExporter.requests)>
         volumeMounts:
@@ -97,8 +92,10 @@ spec:
         runAsUser: 65534
       serviceAccountName: node-exporter
       tolerations:
+      - effect: NoExecute
+        operator: Exists
       - effect: NoSchedule
-        key: node-role.kubernetes.io/master
+        operator: Exists
       volumes:
       - hostPath:
           path: /proc

@@ -1,10 +1,4 @@
 /*
- * Mandatory:
- *
- * vars.prometheus.image.name
- * vars.prometheus.image.version
- * vars.prometheus.replicas
- *
  * Optional:
  * 
  * vars.prometheus.limits.cpu
@@ -41,7 +35,7 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
-  baseImage: <vars.prometheus.image.name>
+  baseImage: quay.io/prometheus/prometheus
   nodeSelector:
     beta.kubernetes.io/os: linux
   replicas: <vars.prometheus.replicas>
@@ -57,7 +51,7 @@ spec:
   serviceAccountName: prometheus-k8s
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
-  version: <vars.prometheus.image.version>
+  version: v2.7.2
   <tolerationMasterGroup(parent, vars, vars.prometheus.allowOnMaster)>
   <tolerationsGroup(parent, vars, vars.prometheus.tolerations, vars.prometheus.allowOnMaster)>
   <affinitiesGroup(parent, vars, vars.prometheus.affinity)>

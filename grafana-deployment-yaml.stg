@@ -645,7 +645,7 @@ spec:
             port: http
         <resourcesGroup(parent, vars, vars.grafana)>
         volumeMounts:
-        - mountPath: /etc/grafana
+        - mountPath: /etc/grafana/grafana.ini
           name: grafana-config
           subPath: grafana.ini
           readOnly: false

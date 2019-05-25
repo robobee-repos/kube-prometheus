@@ -5,6 +5,21 @@
  * 
  * Optional:
  * 
+ * vars.grafana.oauth.generic.enabled
+ * vars.grafana.oauth.generic.allowSignUp
+ * vars.grafana.oauth.generic.clientId
+ * vars.grafana.oauth.generic.clientSecret
+ * vars.grafana.oauth.generic.scopes
+ * vars.grafana.oauth.generic.authUrl
+ * vars.grafana.oauth.generic.tokenUrl
+ * vars.grafana.oauth.generic.apiUrl
+ * vars.grafana.oauth.generic.teamIds
+ * vars.grafana.oauth.generic.allowedOrgs
+ * vars.grafana.oauth.generic.tlsSkipVerifyInsecure
+ * vars.grafana.oauth.generic.tlsClientCert
+ * vars.grafana.oauth.generic.tlsClientKey
+ * vars.grafana.oauth.generic.tlsClientCa
+ * 
  * vars.grafana.email.host
  * vars.grafana.email.port
  * vars.grafana.email.user

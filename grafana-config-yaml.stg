@@ -1,4 +1,8 @@
 /*
+ * Mandatory:
+ * 
+ * vars.grafana.revision
+ * 
  * Optional:
  * 
  * vars.grafana.email.host

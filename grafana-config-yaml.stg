@@ -20,6 +20,7 @@
  * vars.grafana.oauth.generic.tlsClientKey
  * vars.grafana.oauth.generic.tlsClientCa
  * 
+ * vars.grafana.email.enabled
  * vars.grafana.email.host
  * vars.grafana.email.port
  * vars.grafana.email.user
@@ -402,7 +403,7 @@ data:
 
     #################################### SMTP / Emailing ##########################
     [smtp]
-    <if(vars.grafana.email)>
+    <if(vars.grafana.email.enabled)>
     ;enabled = false
     ;host = localhost:25
     ;user =

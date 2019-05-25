@@ -404,6 +404,11 @@ data:
     #################################### SMTP / Emailing ##########################
     [smtp]
     <if(vars.grafana.email.enabled)>
+    enabled = true
+    host = <vars.grafana.email.host>:<vars.grafana.email.port>
+    user = <vars.grafana.email.user>
+    password = <vars.grafana.email.password>
+    <else>
     ;enabled = false
     ;host = localhost:25
     ;user =
@@ -416,11 +421,6 @@ data:
     ;from_name = Grafana
     # EHLO identity in SMTP dialog (defaults to instance_name)
     ;ehlo_identity = dashboard.example.com
-    <else>
-    enabled = true
-    host = <vars.grafana.email.host>:<vars.grafana.email.port>
-    user = <vars.grafana.email.user>
-    password = <vars.grafana.email.password>
     <endif>
 
     [emails]
